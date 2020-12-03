@@ -169,13 +169,58 @@ router.post('/:idUser/cart', (req, res) => {
                         categories: req.body.categories,
                         shippingPrice: req.body.shippingPrice
                     }]
-                    
-                    
                 }
             }
+        }
+    )
+    .then( result => {
+        res.send(result);
+        res.end();
+    })
+    .catch(err => {
+        res.send(err);
+        res.end();
+    });
+});
+
+// Ver productos del carrito getCart
+//http://localhost:7777/users/5fc82fa082a3793044d8e4bf/cart
+router.get('/:idUser/cart', (req, res) => {
+    users.find(
+        {
+            _id: mongoose.Types.ObjectId(req.params.idUser)
         },
-        { 
-            arrayFilters: [{"element.pid":1}], 
+        {
+            cart: true
+        }
+    )
+    .then( result => {
+        res.send(result);
+        res.end();
+    })
+    .catch(err => {
+        res.send(err);
+        res.end();
+    });
+});
+
+//http://localhost:7777/users/5fc82fa082a3793044d8e4bf/delete/5fc81a0b07ab0140b5182f2c
+router.delete('/:idUser/delete/:idProduct', (req, res) => {
+    users.updateMany(
+        {
+            _id: mongoose.Types.ObjectId(req.params.idUser)
+        },
+        {
+            $pull: {
+                cart:
+                {
+                    _id: {
+                        $eq: mongoose.Types.ObjectId(req.params.idProduct)
+                    }
+                }   
+            }
+        },
+        {
             multi: true
         }
     )
@@ -189,6 +234,58 @@ router.post('/:idUser/cart', (req, res) => {
     });
 });
 
+// Select Plan
+//http://localhost:7777/users/id/pricing
+router.post('/:idUser/pricing', (req, res) => {
+    users.updateOne(
+        {
+            _id: mongoose.Types.ObjectId(req.params.idUser)
+        },
+        {
+            $push:{
+                pricingSelected: {
+                    _id: mongoose.Types.ObjectId(req.body._id),
+                    description: req.body.description,
+                    price: req.body.price
+                }
+            }
+        }
+    )
+    .then( result => {
+        res.send(result);
+        res.end();
+    })
+    .catch(err => {
+        res.send(err);
+        res.end();
+    });
+});
 
+// Cambiar Plan
+//http://localhost:7777/users/id/pricing
+router.put('/:idUser/pricing', (req, res) => {
+    users.updateOne(
+        {
+            _id: mongoose.Types.ObjectId(req.params.idUser)
+        },
+        {
+            $set:{
+                pricingSelected: {
+                    _id: mongoose.Types.ObjectId(req.body._id),
+                    description: req.body.description,
+                    price: req.body.price
+                }
+            }
+        }
+    )
+    .then( result => {
+        res.send(result);
+        res.end();
+    })
+    .catch(err => {
+        res.send(err);
+        res.end();
+    });
+});
 
 module.exports = router;
