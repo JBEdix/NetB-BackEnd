@@ -70,9 +70,9 @@ db.typeUsers.insertMany([
 
 db.stores.insertMany([{
     "_id": ObjectId(),
-    "nameStore": 'Gaming Store',
-    "address": 'Comayaguela MDC',
-    "logo": '../assets/img/iddkls/logo.png',
+    "nameStore": "Gaming Store",
+    "address": "Comayaguela MDC",
+    "logo": "../assets/img/iddkls/logo.png",
     "themes": [{
         "nameTheme": "Tema Pricipal",
         "css": "",
@@ -88,8 +88,9 @@ db.stores.insertMany([{
             "description": "Procesador de la familia Ryzen",
             "specs": "Nucleos: 8, numero de hilos: 16, Frecuencia: 3.6Ghz - 4.4Ghz, Temperatura max",
             "amount": 20,
-            "categories": ['PC Gamer', 'Procesador', 'amd', 'ryzen'],
-            "shippingPrice": 400
+            "categories": ["PC Gamer", "Procesador", "amd", "ryzen"],
+            "shippingPrice": 400,
+            "statusProduct": "AV"
         },
         {
             "_id": ObjectId(),
@@ -99,8 +100,9 @@ db.stores.insertMany([{
             "description": "Procesador de la familia Ryzen",
             "specs": "Nucleos: 8, numero de hilos: 16, Frecuencia: 3.6Ghz - 4.4Ghz, Temperatura max",
             "amount": 20,
-            "categories": ['PC Gamer', 'Procesador', 'amd', 'ryzen'],
-            "shippingPrice": 400
+            "categories": ["PC Gamer", "Procesador", "amd", "ryzen"],
+            "shippingPrice": 400,
+            "statusProduct": "AV"
         },
         {
             "_id": ObjectId(),
@@ -110,10 +112,12 @@ db.stores.insertMany([{
             "description": "Procesador de la familia Ryzen",
             "specs": "Nucleos: 8, numero de hilos: 16, Frecuencia: 3.6Ghz - 4.4Ghz, Temperatura max",
             "amount": 20,
-            "categories": ['PC Gamer', 'Procesador', 'amd', 'ryzen'],
-            "shippingPrice": 400
+            "categories": ["PC Gamer", "Procesador", "amd", "ryzen"],
+            "shippingPrice": 400,
+            "statusProduct": "AV"
         },
-    ]
+    ],
+    "statusStore":"A"
 }]);
 
 db.themes.insertMany([{
@@ -135,7 +139,7 @@ db.products.insertMany([{
     "description": "Procesador de la familia Ryzen",
     "specs": "Nucleos: 8, numero de hilos: 16, Frecuencia: 3.6Ghz - 4.4Ghz, Temperatura max",
     "amount": 20,
-    "categories": ['PC Gamer', 'Procesador', 'amd', 'ryzen'],
+    "categories": ["PC Gamer", "Procesador", "amd", "ryzen"],
     "shippingPrice": 400
 }]);
 

@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
 const schema = mongoose.Schema({
-    nameStore: String,
-    address: String,
-    logo: String,
-    themes: Array,
-    products: Array
+    nameStore: {type:String, require:true},
+    address: {type:String, require:true},
+    logo: {type:String, require:true},
+    themes: {type:Array, require:true},
+    products: {type:Array, require:true},
+    statusStore: {type:String, require:true}
 });
 module.exports = mongoose.model('stores', schema);
