@@ -8,13 +8,20 @@ db.users.insertMany([
     "name":"Jheral",
     "lastName": "Blanco",
     "email": "jheral.blanco@gmail.com",
+    "address":"Col. Aldea escondida entre las hojas",
+    "address2":"Bloque k",
+    "country": "Honduras",
+    "city":"Tegucigalpa",
+    "zipCode":"12101",
     "typeUser": [],
     "password": "",
     "cart": [{
         "products": [],
         "subtotal": 12
     }],
-    "pricingSelected": [], 
+    "pricingSelected": [
+
+    ], 
     "userStatus": "A",
     "billing": [
         {
@@ -27,10 +34,14 @@ db.users.insertMany([
             "date": "",
             "shippingAddress": "Comayaguela MDC"
         }
-    ]
+    ],
+    "phone":"8904 0306",
+    "webPage":"",
+    "terms":true,
+    "date": new Date()
 }]);
 
-db.pricing.insertMany([
+db.pricings.insertMany([
     {
         "_id": ObjectId(),
         "description": "Free",

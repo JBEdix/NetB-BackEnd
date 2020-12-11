@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const schema = mongoose.Schema({
-    description: String,
-    price: Number
+    description: {type:String, require:true},
+    price: {type:Number, require:true},
 });
 module.exports = mongoose.model('pricing', schema);

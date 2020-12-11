@@ -32,7 +32,15 @@ router.post('/', (req, res) => {
             pricingSelected: req.body.pricingSelected,
             userStatus: 'A',
             billing: [],
-
+            address: req.body.address,
+            address2: req.body.address2,
+            city: req.body.city,
+            country: req.body.country,
+            phone: req.body.phone,
+            webPage: req.body.webPage,
+            zipCode: req.body.zipCode,
+            date: new Date(),
+            terms: true
         }
     )
     .then( result => {
@@ -46,7 +54,7 @@ router.post('/', (req, res) => {
 });
 
 //http://localhost:7777/users/login
-router.get('/login', (req, res) => {
+router.post('/login', (req, res) => {
     users.find({
         email: req.body.email,
         password: req.body.password
@@ -84,7 +92,16 @@ router.put('/:idUser', (req, res) => {
                 cart: req.body.cart,
                 pricingSelected: req.body.pricingSelected,
                 userStatus: 'A',
-                billing: req.body.billing
+                billing: req.body.billing,
+                address: req.body.address,
+                address2: req.body.address2,
+                city: req.body.city,
+                country: req.body.country,
+                phone: req.body.phone,
+                webPage: req.body.webPage,
+                zipCode: req.body.zipCode,
+                date: new Date(),
+                terms: true
             }
             
 
