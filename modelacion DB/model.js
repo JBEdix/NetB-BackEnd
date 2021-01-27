@@ -128,7 +128,8 @@ db.stores.insertMany([{
             "statusProduct": "AV"
         },
     ],
-    "statusStore":"A"
+    "statusStore":"A",
+    "idUser":""
 }]);
 
 db.themes.insertMany([{

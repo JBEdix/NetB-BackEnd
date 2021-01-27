@@ -28,7 +28,8 @@ router.post('/', (req, res) => {
         logo: '',
         themes: [],
         products: [],
-        statusStore: 'A'
+        statusStore: 'A',
+        idUser: mongoose.Types.ObjectId(req.body.idUser)
     })
     .then( result => {
         res.send(result);
